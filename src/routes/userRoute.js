@@ -10,7 +10,6 @@ const {
 
 // tạo API
 userRouter.get("/get-user", getUser);
-
 userRouter.post("/create-user", createUser);
 
 // API login

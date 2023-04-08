@@ -28,7 +28,6 @@ const getFood = async (req, res) => {
 const createFood = async (req, res) => {
   try {
     const { food_name, image, price, desc, type_id } = req.body;
-
     // INSERT INTO VALUES
     let newModel = {
       food_name,
@@ -37,11 +36,7 @@ const createFood = async (req, res) => {
       desc,
       type_id,
     };
-
     let data = await model.food.create(newModel);
-
-    // console.log(data);
-
     successCode(res, newModel, "Food created");
   } catch (err) {
     failCode(res, "Lỗi BE");
