@@ -9,7 +9,7 @@ const model = iniModels(sequelize);
 
 const getLike = async (req, res) => {
   let data = await model.like_res.findAll();
-  successCode(res, data, "get like success");
+  successCode(res, data, "get like success1");
 };
 const getLikeWithRestaurent = async (req, res) => {
   let id = req.params.id;
