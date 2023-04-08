@@ -7,48 +7,49 @@ const { successCode, errorCode, failCode } = require("../config/response");
 // đối tượng chứa các model trong database
 const model = iniModels(sequelize);
 
-const getLike = async (req, res) => {
+const getReview = async (req, res) => {
   let data = await model.like_res.findAll();
-  successCode(res, data, "get like success1");
+  successCode(res, data, "get review success");
 };
-const getLikeWithRestaurent = async (req, res) => {
+const getReviewithRestaurent = async (req, res) => {
   try {
     let { id } = req.params;
-    let result = await model.like_res.findAll({
+    let result = await model.rate_res.findAll({
       where: {
         res_id: id,
       },
     });
-    successCode(res, result, "get like success");
+    successCode(res, result, "get review success");
   } catch (error) {
     errorCode(res, "Lỗi backend");
   }
 };
-const getLikeWithUser = async (req, res) => {
+const getReviewWithUser = async (req, res) => {
   try {
     let { id } = req.params;
-    let result = await model.like_res.findAll({
+    let result = await model.rate_res.findAll({
       where: {
         user_id: id,
       },
     });
-    successCode(res, result, "get like success");
-    return;
+    successCode(res, result, "get review success");
   } catch (error) {
     errorCode(res, "Lỗi backend");
   }
 };
-const postLike = async (req, res) => {
+const postReview = async (req, res) => {
   try {
-    let { user_id, res_id } = req.body;
-    let newLike = { user_id, res_id };
-    let data = await model.like_res.create(newLike);
-    successCode(res, data, "like success");
-    return;
+    let { user_id, res_id, amount } = req.body;
+    let newReview = { user_id, res_id, amount };
+    let data = await model.rate_res.create(newReview);
+    successCode(res, data, "post review success");
   } catch (error) {
     errorCode(res, "Lỗi backend");
   }
-
-  // res.send("sss");
 };
-module.exports = { getLike, getLikeWithRestaurent, getLikeWithUser, postLike };
+module.exports = {
+  getReview,
+  getReviewithRestaurent,
+  getReviewWithUser,
+  postReview,
+};
