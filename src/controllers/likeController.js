@@ -41,10 +41,17 @@ const getLikeWithUser = async (req, res) => {
 const postLike = async (req, res) => {
   try {
     let { user_id, res_id } = req.body;
-    let newLike = { user_id, res_id };
-    let data = await model.like_res.create(newLike);
-    successCode(res, data, "like success");
-    return;
+    let check = await model.like_res.findOne({
+      user_id: user_id,
+    });
+    if (check) {
+      errorCode(res, "liked");
+    } else {
+      let newLike = { user_id, res_id };
+      let data = await model.like_res.create(newLike);
+      successCode(res, data, "like success");
+      return;
+    }
   } catch (error) {
     errorCode(res, "Lỗi backend");
   }
