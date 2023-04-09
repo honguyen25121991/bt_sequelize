@@ -41,15 +41,34 @@ const getLikeWithUser = async (req, res) => {
 const postLike = async (req, res) => {
   try {
     let { user_id, res_id } = req.body;
+    // let check = await model.like_res.findOne({
+    //   user_id: user_id,
+    // });
+    // if (check) {
+    //   errorCode(res, "liked");
+    // } else {
+    let newLike = { user_id, res_id };
+    let data = await model.like_res.create(newLike);
+    successCode(res, data, "like success");
+    return;
+    // }
+  } catch (error) {
+    errorCode(res, "Lỗi backend");
+  }
+
+  // res.send("sss");
+};
+const postUnLike = async (req, res) => {
+  try {
+    let { user_id, res_id } = req.body;
     let check = await model.like_res.findOne({
       user_id: user_id,
+      res_id: res_id,
     });
     if (check) {
-      errorCode(res, "liked");
-    } else {
       let newLike = { user_id, res_id };
-      let data = await model.like_res.create(newLike);
-      successCode(res, data, "like success");
+      let data = await model.like_res.update(newLike);
+      successCode(res, data, "un like success");
       return;
     }
   } catch (error) {
@@ -58,4 +77,10 @@ const postLike = async (req, res) => {
 
   // res.send("sss");
 };
-module.exports = { getLike, getLikeWithRestaurent, getLikeWithUser, postLike };
+module.exports = {
+  getLike,
+  getLikeWithRestaurent,
+  getLikeWithUser,
+  postLike,
+  postUnLike,
+};

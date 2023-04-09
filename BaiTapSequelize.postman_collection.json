@@ -1,0 +1,251 @@
+{
+	"info": {
+		"_postman_id": "3d70d356-dc96-4205-ae2f-afdf5f5b14b8",
+		"name": "BaiTapSequelize",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12701650"
+	},
+	"item": [
+		{
+			"name": "Get all like",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/like/get-like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"like",
+						"get-like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get like with restaurenid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/like/get-like-with-restaurent/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"like",
+						"get-like-with-restaurent",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get review with restaurenid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/review/get-review-with-restaurent/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"review",
+						"get-review-with-restaurent",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get review with user_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/review/get-review-with-user-id/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"review",
+						"get-review-with-user-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get like with user_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/like/get-like-with-user-id/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"like",
+						"get-like-with-user-id",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post like",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":3,\n    \"res_id\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/like/create-like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"like",
+						"create-like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unlike",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":1,\n    \"res_id\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/like/unlike",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"like",
+						"unlike"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post review retaurant",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":3,\n    \"res_id\":4,\n    \"amount\":\"aaaaaaaa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/review/create-review",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"review",
+						"create-review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_id\":2,\n    \"food_id\":2,\n    \"amount\":\"1\",\n    \"code\":\"ssss\",\n    \"arr_sub_id\":\"aaaaaaaa\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/order/create-order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"order",
+						"create-order"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
